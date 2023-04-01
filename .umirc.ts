@@ -1,4 +1,4 @@
-import { defineConfig } from 'umi';
+import {defineConfig} from 'umi';
 
 export default defineConfig({
   nodeModulesTransform: {
@@ -6,7 +6,12 @@ export default defineConfig({
   },
   layout: {},
   routes: [
-    { path: '/', component: '@/pages/index' },
+    {
+      path: '/', component: '@/layouts/index', routes: [
+        {path: '/', component: '@/pages/index'},
+        {path: '/deploymentCommands', component: '@/pages/deploymentCommands'}
+      ]
+    },
   ],
   fastRefresh: {},
 });
